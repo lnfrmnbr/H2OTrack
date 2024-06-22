@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">H2OTrack</string>
+    <string name="tagline">Если хотите контролировать 80% себя - контролируйте воду</string>
+    <string name="auth">Войти</string>
+    <string name="register">Зарегистрироваться</string>
+</resources>

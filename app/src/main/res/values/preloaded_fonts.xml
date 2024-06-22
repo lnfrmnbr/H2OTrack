@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/akaya_telivigala</item>
+        <item>@font/anton</item>
+        <item>@font/architects_daughter</item>
+        <item>@font/baloo</item>
+        <item>@font/caveat_brush</item>
+        <item>@font/coiny</item>
+        <item>@font/hachi_maru_pop</item>
+        <item>@font/just_me_again_down_here</item>
+        <item>@font/montserrat</item>
+        <item>@font/oswald</item>
+        <item>@font/oswald_extralight</item>
+        <item>@font/play</item>
+        <item>@font/zcool_kuaile</item>
+    </array>
+</resources>
