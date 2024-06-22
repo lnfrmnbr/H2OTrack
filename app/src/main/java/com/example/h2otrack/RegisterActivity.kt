@@ -64,8 +64,6 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-
-
         val buttonBackToMain = findViewById<ImageButton>(R.id.back_to_main)
 
         buttonBackToMain.setOnClickListener {

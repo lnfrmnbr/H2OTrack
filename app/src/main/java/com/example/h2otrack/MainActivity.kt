@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonAuth.setOnClickListener{
-            //val intent = Intent(this, MainActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
         }
     }
 }

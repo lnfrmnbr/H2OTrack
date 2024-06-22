@@ -18,7 +18,7 @@ class DBHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         onCreate(db)
     }
 
-    fun addUser(user: User){
+    fun addUser(user: User){                     //vika v123
         val values = ContentValues()
         values.put("name", user.name)
         values.put("sex", user.sex)
@@ -29,5 +29,11 @@ class DBHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         val db = this.writableDatabase
         db.insert("users", null, values)
         db.close()
+    }
+
+    fun checkUser(name: String, pass: String): Boolean{
+        val db = this.readableDatabase
+        val result = db.rawQuery("SELECT * FROM users WHERE name = '$name' AND pass = '$pass'", null)
+        return result.moveToFirst()
     }
 }

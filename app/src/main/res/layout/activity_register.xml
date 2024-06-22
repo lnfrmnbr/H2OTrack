@@ -49,10 +49,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintVertical_bias="0.075" />
 
     <Button
         android:id="@+id/button_register"
@@ -92,17 +92,26 @@
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:hint="Пол"
+        android:textColorHint="@color/black"
+        app:counterTextColor="@color/black"
+        app:endIconTint="@color/black"
+        app:helperTextTextColor="@color/black"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/reg_weight_layout"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_name_layout">
+        app:layout_constraintTop_toBottomOf="@+id/reg_name_layout"
+        app:placeholderTextColor="@color/black"
+        app:prefixTextColor="@color/black"
+        app:startIconTint="@color/black"
+        app:suffixTextColor="@color/black">
 
         <AutoCompleteTextView
             android:id="@+id/reg_sex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            android:contentDescription="sex_selector"/>
+            android:contentDescription="sex_selector"
+            android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,8 +124,11 @@
         android:ems="10"
         android:hint="Имя"
         android:inputType="text"
+        app:boxStrokeColor="@color/black"
         app:counterEnabled="true"
         app:counterMaxLength="20"
+        app:endIconTint="@color/black"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +139,8 @@
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:fontFamily="@font/play"
-            android:maxLength="20" />
+            android:maxLength="20"
+            android:textColorLink="#CEEEFA" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -139,10 +152,14 @@
         android:ems="10"
         android:hint="Пароль"
         android:inputType="textPassword"
+        app:boxStrokeColor="@color/black"
+        app:endIconTint="@color/black"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_activity_layout">
+        app:layout_constraintTop_toBottomOf="@+id/reg_activity_layout"
+        app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reg_password"
@@ -158,14 +175,17 @@
         android:layout_width="276dp"
         android:layout_height="95dp"
         android:hint="Время активности в часах"
-        app:boxStrokeColor="@color/blue_dark"
+        app:boxStrokeColor="@color/black"
+        app:endIconTint="@color/black"
         app:helperText="Во время работы, уборки, поездок, занятий спортом"
+        app:hintTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_sex_layout"
-        app:layout_constraintVertical_bias="0.083">
+        app:layout_constraintVertical_bias="0.083"
+        app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reg_activity"
@@ -185,12 +205,15 @@
         android:hint="Вес"
         android:inputType="number"
         app:boxStrokeColor="@color/blue_dark"
+        app:endIconTint="@color/black"
+        app:hintTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.799"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_name_layout"
-        app:layout_constraintVertical_bias="0.017">
+        app:layout_constraintVertical_bias="0.017"
+        app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reg_weight"

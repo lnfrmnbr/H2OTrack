@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthActivity"
+    android:background="@color/blue_light">
+
+    <Button
+        android:id="@+id/button_auth"
+        android:layout_width="235dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/blue_dark"
+        android:fontFamily="@font/play"
+        android:text="@string/auth"
+        android:textColor="@color/blue_light"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auth_password_layout"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/auth_password_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="276dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        app:boxStrokeColor="@color/black"
+        app:endIconTint="@color/black"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auth_name_layout"
+        app:startIconTint="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/auth_password"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:inputType="textPassword"
+            android:maxLength="20" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/auth_name_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="276dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Имя"
+        android:inputType="text"
+        app:boxStrokeColor="@color/black"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:endIconTint="@color/black"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/auth_name"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:fontFamily="@font/play"
+            android:maxLength="20"
+            android:textColorLink="#CEEEFA" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/back_to_main"
+        android:layout_width="59dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/blue_light"
+        android:contentDescription="back_to_main"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/text_auth"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.343"
+        app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/text_auth"
+        android:layout_width="109dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/hachi_maru_pop"
+        android:text="Вход"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.078" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="265dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_auth"
+        app:srcCompat="@drawable/burning_heart" />
+</androidx.constraintlayout.widget.ConstraintLayout>
