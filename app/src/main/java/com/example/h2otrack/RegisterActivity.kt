@@ -49,8 +49,18 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Необходимо заполнить все поля", Toast.LENGTH_LONG).show()
             }
             else{
-                val weight = weight.toInt()
-                val activity = activity.toInt()
+                val weightInt = weight.toInt()
+                val activityInt = activity.toInt()
+                val user = User(name, sex, weightInt, activityInt, pass)
+
+                val db = DBHelper(this, null)
+                db.addUser(user)
+
+                regName.text?.clear()
+                regSex.text?.clear()
+                regWeight.text?.clear()
+                regActivity.text?.clear()
+                regPassword.text?.clear()
             }
         }
 
