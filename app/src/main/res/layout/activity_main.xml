@@ -52,7 +52,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/blue_dark"
-        android:fontFamily="@font/akaya_telivigala"
+        android:fontFamily="@font/play"
         android:text="@string/register"
         android:textSize="18sp"
         android:textStyle="normal"

@@ -3,4 +3,9 @@
     <string name="tagline">Если хотите контролировать 80% себя - контролируйте воду</string>
     <string name="auth">Войти</string>
     <string name="register">Зарегистрироваться</string>
+    
+    <string-array name="sex">
+        <item>Женский</item>
+        <item>Мужской</item>
+    </string-array>
 </resources>

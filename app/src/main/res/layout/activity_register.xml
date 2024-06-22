@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_sex"
+        app:layout_constraintTop_toBottomOf="@+id/reg_sex_layout"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -33,32 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078" />
-
-    <Button
-        android:id="@+id/button_back_from_reg"
-        android:layout_width="67dp"
-        android:layout_height="57dp"
-        android:backgroundTint="#7FB0EF"
-        android:fontFamily="@font/hachi_maru_pop"
-        android:text="ds"
-        android:textColor="#1D1B20"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/reg_name"
-        app:layout_constraintEnd_toStartOf="@+id/text_reg"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.304" />
-
-    <Spinner
-        android:id="@+id/reg_sex"
-        android:layout_width="112dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/reg_weight"
-        app:layout_constraintHorizontal_bias="0.581"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_name" />
 
     <EditText
         android:id="@+id/reg_name"
@@ -115,4 +89,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_name"
         app:layout_constraintVertical_bias="0.111" />
+
+    <ImageButton
+        android:id="@+id/back_to_main"
+        android:layout_width="59dp"
+        android:layout_height="54dp"
+        android:backgroundTint="#7FB0EF"
+        android:contentDescription="back_to_main"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/reg_name"
+        app:layout_constraintEnd_toStartOf="@+id/text_reg"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.343"
+        app:srcCompat="@drawable/back" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/reg_sex_layout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="109dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="32dp"
+        android:hint="Пол"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reg_weight"
+        app:layout_constraintHorizontal_bias="0.581"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_name">
+
+        <AutoCompleteTextView
+            android:id="@+id/reg_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
