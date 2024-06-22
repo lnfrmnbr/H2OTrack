@@ -3,12 +3,16 @@ package com.example.h2otrack
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.h2otrack.databinding.ActivityRegisterBinding
+import com.google.android.material.textfield.TextInputEditText
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -27,8 +31,32 @@ class RegisterActivity : AppCompatActivity() {
         val arrayAdapter = ArrayAdapter(this, R.layout.drop_down_item, sexes)
         binding.regSex.setAdapter(arrayAdapter)
 
-        val buttonBackToMain = findViewById<ImageButton>(R.id.back_to_main)
+        val regName: TextInputEditText = findViewById<TextInputEditText>(R.id.reg_name)
+        val regSex: AutoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.reg_sex)
+        val regWeight: TextInputEditText = findViewById<TextInputEditText>(R.id.reg_weight)
+        val regActivity: TextInputEditText = findViewById<TextInputEditText>(R.id.reg_activity)
+        val regPassword: TextInputEditText = findViewById<TextInputEditText>(R.id.reg_password)
+        val regButton: Button = findViewById<Button>(R.id.button_register)
 
+        regButton.setOnClickListener {
+            val name = regName.text.toString().trim()
+            val sex = regSex.text.toString().trim()
+            val weight = regWeight.text.toString().trim()
+            val activity = regActivity.text.toString().trim()
+            val pass = regPassword.text.toString().trim()
+
+            if(name == "" || sex == "" || weight == "" || activity == "" || pass == ""){
+                Toast.makeText(this, "Необходимо заполнить все поля", Toast.LENGTH_LONG).show()
+            }
+            else{
+                val weight = weight.toInt()
+                val activity = activity.toInt()
+            }
+        }
+
+
+
+        val buttonBackToMain = findViewById<ImageButton>(R.id.back_to_main)
 
         buttonBackToMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
