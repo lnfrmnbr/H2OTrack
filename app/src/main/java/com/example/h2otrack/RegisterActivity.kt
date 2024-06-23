@@ -61,6 +61,9 @@ class RegisterActivity : AppCompatActivity() {
                 regWeight.text?.clear()
                 regActivity.text?.clear()
                 regPassword.text?.clear()
+
+                val intentt = Intent(this, AppActivity::class.java)
+                startActivity(intentt)
             }
         }
 

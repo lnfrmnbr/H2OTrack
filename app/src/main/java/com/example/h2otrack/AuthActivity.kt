@@ -39,9 +39,10 @@ class AuthActivity : AppCompatActivity() {
                 val isAuth = db.checkUser(name, pass)
 
                 if(isAuth){
-                    Toast.makeText(this, "Пользователь найден", Toast.LENGTH_LONG).show()
                     authName.text?.clear()
                     authPassword.text?.clear()
+                    val intentt = Intent(this, AppActivity::class.java)
+                    startActivity(intentt)
                 }
                 else{
                     Toast.makeText(this, "Пользователь не найден", Toast.LENGTH_LONG).show()
