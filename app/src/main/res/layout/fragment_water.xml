@@ -49,7 +49,7 @@
                 android:textSize="30sp"
                 app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.34"
+                app:layout_constraintHorizontal_bias="0.487"
                 app:layout_constraintStart_toEndOf="@+id/bottle"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,14 +57,14 @@
                 android:id="@+id/minus"
                 android:layout_width="86dp"
                 android:layout_height="86dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="32dp"
                 android:backgroundTint="#EFEFEF"
                 android:text="-"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.329"
+                app:layout_constraintHorizontal_bias="0.487"
                 app:layout_constraintStart_toEndOf="@+id/bottle"
                 app:layout_constraintTop_toBottomOf="@+id/text_litter" />
 
@@ -77,7 +77,7 @@
                 android:text="0"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.393"
+                app:layout_constraintHorizontal_bias="0.492"
                 app:layout_constraintStart_toEndOf="@+id/bottle"
                 app:layout_constraintTop_toBottomOf="@+id/plus" />
 
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/hachi_maru_pop"
-                android:text="литров"
+                android:text="миллилитров"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.336"
                 app:layout_constraintStart_toEndOf="@+id/bottle"
