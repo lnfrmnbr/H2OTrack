@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/white"
+        app:cardCornerRadius="14dp"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/play"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/select_container"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <ImageButton
+                        android:id="@+id/butt_glass"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:scaleY="0.6"
+                        android:scaleX="0.6"
+                        android:background="@color/white"
+                        app:srcCompat="@drawable/icon_glass"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ml200"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/play"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:text="200мл" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:scaleY="0.6"
+                        android:scaleX="0.6"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        app:srcCompat="@drawable/icon_cup"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/play"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:text="300мл" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <ImageButton
+                        android:id="@+id/butt_bottle"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+
+                        android:background="@color/white"
+                        app:srcCompat="@drawable/icon_bottle"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ml500"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/play"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:text="500мл" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+                    <ImageButton
+                        android:id="@+id/butt_unnown"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:scaleY="0.8"
+                        android:scaleX="0.8"
+                        android:background="@color/white"
+                        app:srcCompat="@drawable/icon_unnown"
+                        app:tint="@color/black"
+                        />
+
+                    <TextView
+                        android:id="@+id/mlx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/play"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:text="мл" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/butt_select_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/play"
+                android:backgroundTint="@color/black"
+                android:text="Выбрать" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
