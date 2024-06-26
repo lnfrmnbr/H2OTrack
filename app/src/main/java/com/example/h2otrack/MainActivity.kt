@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
         val buttonReg = findViewById<Button>(R.id.button_reg)
 
         buttonReg.setOnClickListener{
-            val intentt = Intent(this, AppActivity::class.java)
-            startActivity(intentt)
-            //val intent = Intent(this, RegisterActivity::class.java)
-            //startActivity(intent)
+            //val intentt = Intent(this, AppActivity::class.java)
+            //startActivity(intentt)
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
         buttonAuth.setOnClickListener{

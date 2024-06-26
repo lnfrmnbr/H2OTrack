@@ -2,6 +2,7 @@ package com.example.h2otrack
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageButton
@@ -39,9 +40,12 @@ class AuthActivity : AppCompatActivity() {
                 val isAuth = db.checkUser(name, pass)
 
                 if(isAuth){
+                    db.displayAllData()
+                    val id = db.getId(name, pass)
                     authName.text?.clear()
                     authPassword.text?.clear()
                     val intentt = Intent(this, AppActivity::class.java)
+                    intentt.putExtra("id", id.toString())
                     startActivity(intentt)
                 }
                 else{

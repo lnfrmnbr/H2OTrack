@@ -1,10 +1,10 @@
 package com.example.h2otrack.fragments
 
 import android.app.Dialog
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,22 +14,47 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.ColorRes
-import androidx.compose.ui.window.Dialog
 import androidx.core.content.ContextCompat
 import com.example.h2otrack.R
 
 class WaterFragment : Fragment() {
+    init {
+        retainInstance = true
+    }
+
+    //var id = ""
+
+    companion object {
+        fun newInstance(id: String): WaterFragment {
+            val fragment = WaterFragment()
+            val args = Bundle()
+            args.putString("id", id)
+            Log.e("DEBUG", "new inst '$id'")
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.e("DEBUG", "onCreate of LoginFragment")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.e("DEBUG", "onCreateView of LoginFragment")
         return inflater.inflate(R.layout.fragment_water, container, false)
     }
 
     override fun onResume() {
         super.onResume()
+        Log.e("DEBUG", "onResume of LoginFragment")
+
+        val littersAtDay: TextView = requireView().findViewById(R.id.litters_at_day)
+        littersAtDay.text = arguments?.get("id").toString()
+
         val buttPlus: Button = requireView().findViewById(R.id.plus)
 
         buttPlus.setOnClickListener {
@@ -111,6 +136,11 @@ class WaterFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onPause() {
+        Log.e("DEBUG", "OnPause of loginFragment")
+        super.onPause()
     }
 
 

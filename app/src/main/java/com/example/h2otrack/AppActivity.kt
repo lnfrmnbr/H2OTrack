@@ -1,7 +1,9 @@
 package com.example.h2otrack
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import com.example.h2otrack.fragments.WaterFragment
 import com.qamar.curvedbottomnaviagtion.CurvedBottomNavigation
 
 class AppActivity : AppCompatActivity() {
+    var userId = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -40,14 +43,14 @@ class AppActivity : AppCompatActivity() {
                     replaceFragment(TotalFragment())
                 }
                 2 -> {
-                    replaceFragment(WaterFragment())
+                    openWaterFragmentWithUserId()
                 }
                 3 -> {
                     replaceFragment(ProfileFragment())
                 }
             }
         }
-        replaceFragment(WaterFragment())
+        openWaterFragmentWithUserId()
         bottomNavigation.show(2)
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
@@ -56,10 +59,33 @@ class AppActivity : AppCompatActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Log.e("DEBUG", "onActivityResult of appact")
+        super.onActivityResult(requestCode, resultCode, data)
+        val message = intent.getStringExtra("id")
+        if (message != null) {
+            userId = message.toString()
+        }
+
+    }
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
+            .commit()
+    }
+
+    private fun openWaterFragmentWithUserId() {
+        val message = intent.getStringExtra("id")
+        Log.e("DEBUG", "openWaterFragmentWithUserId mess '$message'")
+        if (message != null) {
+            userId = message.toString()
+        }
+        Log.e("DEBUG", "openWaterFragmentWithUserId '$userId'")
+        val waterFragment = WaterFragment.newInstance(userId)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, waterFragment)
             .commit()
     }
 }
