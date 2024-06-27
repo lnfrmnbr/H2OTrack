@@ -15,45 +15,47 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.h2otrack.DBHelper
 import com.example.h2otrack.R
+import java.util.Calendar
 
 class WaterFragment : Fragment() {
     init {
         retainInstance = true
     }
 
-    //var id = ""
-
     companion object {
         fun newInstance(id: String): WaterFragment {
             val fragment = WaterFragment()
             val args = Bundle()
             args.putString("id", id)
-            Log.e("DEBUG", "new inst '$id'")
             fragment.arguments = args
             return fragment
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.e("DEBUG", "onCreate of LoginFragment")
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.e("DEBUG", "onCreateView of LoginFragment")
         return inflater.inflate(R.layout.fragment_water, container, false)
     }
 
     override fun onResume() {
         super.onResume()
-        Log.e("DEBUG", "onResume of LoginFragment")
 
         val littersAtDay: TextView = requireView().findViewById(R.id.litters_at_day)
-        littersAtDay.text = arguments?.get("id").toString()
+        val id = arguments?.get("id").toString().toInt()
+        val db = DBHelper(requireContext(), null)
+        val calendar = Calendar.getInstance()
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val month = calendar.get(Calendar.MONTH) + 1
+
+        if(!(db.checkDataForDay(id, day, month))){
+            db.addDataForDay(id, day, month)
+        }
+        db.displayAllData()
+        littersAtDay.text = db.getCurrentMlOfDay(id, day, month).toString()
 
         val buttPlus: Button = requireView().findViewById(R.id.plus)
 
@@ -129,7 +131,8 @@ class WaterFragment : Fragment() {
                 if (numOfLitters != 0 || (isUnknownSelected && getNumOfLitters == "0")){
                     myDialog.dismiss()
                     val littersAtDay: TextView = requireView().findViewById(R.id.litters_at_day)
-                    littersAtDay.text = (littersAtDay.text.toString().toInt() + numOfLitters).toString()
+                    db.changeWaterValue(id, day, month, numOfLitters)
+                    littersAtDay.text = db.getCurrentMlOfDay(id, day, month).toString()
                 }
                 else{
                     Toast.makeText(requireContext(), "Выберете объем выпитой жидкости", Toast.LENGTH_LONG).show()
@@ -137,11 +140,4 @@ class WaterFragment : Fragment() {
             }
         }
     }
-
-    override fun onPause() {
-        Log.e("DEBUG", "OnPause of loginFragment")
-        super.onPause()
-    }
-
-
 }
