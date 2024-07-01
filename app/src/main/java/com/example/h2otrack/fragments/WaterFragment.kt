@@ -74,9 +74,8 @@ class WaterFragment : Fragment() {
             barSet += data to db.getCurrentMlOfDay(id, day, month).toFloat()
         }
 
-        val d = barSet.indexOfFirst{ it.first == data }
-        Log.e("DEBUG", "hhhhhhhhhhhh '$barSet'")
-        barSet[d] = data to db.getCurrentMlOfDay(id, day, month).toFloat()
+        val i = barSet.indexOfFirst{ it.first == data }
+        barSet[i] = data to db.getCurrentMlOfDay(id, day, month).toFloat()
         db.displayAllData()
         littersAtDay.text = db.getCurrentMlOfDay(id, day, month).toString()
 
@@ -160,6 +159,9 @@ class WaterFragment : Fragment() {
                     val littersAtDay: TextView = requireView().findViewById(R.id.litters_at_day)
                     db.changeWaterValue(id, day, month, numOfLitters)
                     littersAtDay.text = db.getCurrentMlOfDay(id, day, month).toString()
+                    val j = barSet.indexOfFirst{ it.first == data }
+                    barSet[j] = data to db.getCurrentMlOfDay(id, day, month).toFloat()
+                    waterBarChart.animate(barSet)
                 }
                 else{
                     Toast.makeText(requireContext(), "Выберете объем выпитой жидкости", Toast.LENGTH_LONG).show()

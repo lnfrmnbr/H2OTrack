@@ -3,14 +3,12 @@ package com.example.h2otrack
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.example.h2otrack.databinding.ActivityAppBinding
 import com.example.h2otrack.fragments.ProfileFragment
 import com.example.h2otrack.fragments.TotalFragment
 import com.example.h2otrack.fragments.WaterFragment
