@@ -14,15 +14,19 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.animation.core.estimateAnimationDurationMillis
 import androidx.core.content.ContextCompat
 import com.example.h2otrack.DBHelper
 import com.example.h2otrack.R
+import com.example.h2otrack.databinding.ActivityAppBinding
+import com.example.h2otrack.databinding.FragmentWaterBinding
 import java.util.Calendar
 
 class WaterFragment : Fragment() {
-    init {
-        retainInstance = true
-    }
+
+    private var _binding: FragmentWaterBinding? = null
+    private val binding get() = _binding!!
+
 
     companion object {
         fun newInstance(id: String): WaterFragment {
@@ -32,6 +36,17 @@ class WaterFragment : Fragment() {
             fragment.arguments = args
             return fragment
         }
+
+        private val animationDuration = 1000L
+
+        private var barSet = mutableListOf(
+            "24.6" to 1500F,
+            "25.6" to 2000F,
+            "26.6" to 1620F,
+            "27.6" to 1500F,
+            "28.6" to 2000F,
+            "29.6" to 1620F,
+        )
     }
 
     override fun onCreateView(
@@ -50,12 +65,24 @@ class WaterFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         val month = calendar.get(Calendar.MONTH) + 1
+        val data = "$day.$month"
 
         if(!(db.checkDataForDay(id, day, month))){
             db.addDataForDay(id, day, month)
         }
+        if(!(barSet.any { it.first == data })){
+            barSet += data to db.getCurrentMlOfDay(id, day, month).toFloat()
+        }
+
+        val d = barSet.indexOfFirst{ it.first == data }
+        Log.e("DEBUG", "hhhhhhhhhhhh '$barSet'")
+        barSet[d] = data to db.getCurrentMlOfDay(id, day, month).toFloat()
         db.displayAllData()
         littersAtDay.text = db.getCurrentMlOfDay(id, day, month).toString()
+
+        val waterBarChart = requireView().findViewById<com.db.williamchart.view.BarChartView>(R.id.water_barChart)
+        waterBarChart.animation.duration = animationDuration
+        waterBarChart.animate(barSet)
 
         val buttPlus: Button = requireView().findViewById(R.id.plus)
 

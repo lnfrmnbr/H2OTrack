@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.h2otrack.databinding.ActivityAppBinding
 import com.example.h2otrack.fragments.ProfileFragment
 import com.example.h2otrack.fragments.TotalFragment
 import com.example.h2otrack.fragments.WaterFragment
@@ -17,6 +18,7 @@ import com.qamar.curvedbottomnaviagtion.CurvedBottomNavigation
 
 class AppActivity : AppCompatActivity() {
     var userId = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -60,7 +62,6 @@ class AppActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.e("DEBUG", "onActivityResult of appact")
         super.onActivityResult(requestCode, resultCode, data)
         val message = intent.getStringExtra("id")
         if (message != null) {
@@ -78,11 +79,9 @@ class AppActivity : AppCompatActivity() {
 
     private fun openWaterFragmentWithUserId() {
         val message = intent.getStringExtra("id")
-        Log.e("DEBUG", "openWaterFragmentWithUserId mess '$message'")
         if (message != null) {
             userId = message.toString()
         }
-        Log.e("DEBUG", "openWaterFragmentWithUserId '$userId'")
         val waterFragment = WaterFragment.newInstance(userId)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, waterFragment)
