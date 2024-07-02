@@ -21,6 +21,7 @@ import com.example.h2otrack.R
 import com.example.h2otrack.databinding.ActivityAppBinding
 import com.example.h2otrack.databinding.FragmentWaterBinding
 import java.util.Calendar
+import kotlin.math.abs
 
 class WaterFragment : Fragment() {
 
@@ -40,13 +41,14 @@ class WaterFragment : Fragment() {
         private val animationDuration = 1000L
 
         private var barSet = mutableListOf(
-            "24.6" to 1500F,
-            "25.6" to 2000F,
-            "26.6" to 1620F,
-            "27.6" to 1500F,
-            "28.6" to 2000F,
-            "29.6" to 1620F,
-        )
+            "24.6" to 0F,
+            "25.6" to 0F,
+            "26.6" to 0F,
+            "27.6" to 0F,
+            "28.6" to 0F,
+            "29.6" to 0F,
+            "29.6" to 0F,
+            )
     }
 
     override fun onCreateView(
@@ -72,7 +74,13 @@ class WaterFragment : Fragment() {
         }
 
         if(!(barSet.any { it.first == data })){
-            barSet += data to db.getCurrentMlOfDay(id, day, month).toFloat()
+            for (i in 0..6) {
+                val _calendar = Calendar.getInstance()
+                _calendar.add(Calendar.DAY_OF_YEAR, -i)
+                val _day = _calendar.get(Calendar.DAY_OF_MONTH)
+                val _month = _calendar.get(Calendar.MONTH) + 1
+                barSet[abs(i-6)] = "$_day.$_month" to db.getCurrentMlOfDay(id, _day, _month).toFloat()
+            }
         }
 
         val i = barSet.indexOfFirst{ it.first == data }
