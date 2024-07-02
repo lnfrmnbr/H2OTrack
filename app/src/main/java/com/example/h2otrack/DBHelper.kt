@@ -4,14 +4,15 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
 class DBHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?) :
-    SQLiteOpenHelper(context, "h2otracker_db", factory, 2){
+    SQLiteOpenHelper(context, "h2otracker_db", factory, 3){
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val query1 = "CREATE TABLE drinks (id INT PRIMARY KEY, day INT, month INT, water INT, tea INT, coffee INT)"
+        val query1 = "CREATE TABLE drinks (id INT, day INT, month INT, water INT, tea INT, coffee INT)"
         val query = "CREATE TABLE users (id INT PRIMARY KEY, name TEXT, sex TEXT, weight INT, activity INT, pass TEXT)"
         db!!.execSQL(query)
         db.execSQL(query1)
@@ -99,6 +100,7 @@ class DBHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         val db = this.writableDatabase
         db.insert("drinks", null, values)
         db.close()
+        displayAllData()
     }
 
     fun checkDataForDay(id: Int, day: Int, month: Int): Boolean{

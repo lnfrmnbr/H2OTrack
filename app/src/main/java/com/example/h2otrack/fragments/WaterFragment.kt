@@ -70,13 +70,13 @@ class WaterFragment : Fragment() {
         if(!(db.checkDataForDay(id, day, month))){
             db.addDataForDay(id, day, month)
         }
+
         if(!(barSet.any { it.first == data })){
             barSet += data to db.getCurrentMlOfDay(id, day, month).toFloat()
         }
 
         val i = barSet.indexOfFirst{ it.first == data }
         barSet[i] = data to db.getCurrentMlOfDay(id, day, month).toFloat()
-        db.displayAllData()
         littersAtDay.text = db.getCurrentMlOfDay(id, day, month).toString()
 
         val waterBarChart = requireView().findViewById<com.db.williamchart.view.BarChartView>(R.id.water_barChart)
