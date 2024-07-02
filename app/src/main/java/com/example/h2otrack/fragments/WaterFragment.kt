@@ -41,13 +41,13 @@ class WaterFragment : Fragment() {
         private val animationDuration = 1000L
 
         private var barSet = mutableListOf(
-            "24.6" to 0F,
-            "25.6" to 0F,
-            "26.6" to 0F,
-            "27.6" to 0F,
-            "28.6" to 0F,
-            "29.6" to 0F,
-            "29.6" to 0F,
+            "" to 0F,
+            "" to 0F,
+            "" to 0F,
+            "" to 0F,
+            "" to 0F,
+            "" to 0F,
+            "" to 0F,
             )
     }
 
@@ -105,6 +105,10 @@ class WaterFragment : Fragment() {
             val buttCup = dialogBinding.findViewById<ImageButton>(R.id.butt_cup)
             val buttBottle = dialogBinding.findViewById<ImageButton>(R.id.butt_bottle)
             val buttUnknown = dialogBinding.findViewById<ImageButton>(R.id.butt_unknown)
+            val tMl200 = dialogBinding.findViewById<TextView>(R.id.ml200)
+            val tMl300 = dialogBinding.findViewById<TextView>(R.id.ml300)
+            val tMl500 = dialogBinding.findViewById<TextView>(R.id.ml500)
+            val tMlx = dialogBinding.findViewById<TextView>(R.id.mlx)
             var numOfLitters = 0
             var isUnknownSelected = false
 
@@ -115,6 +119,10 @@ class WaterFragment : Fragment() {
                         R.color.blue_dark
                     )
                 )
+                tMl200.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_dark))
+                tMl300.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMl500.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMlx.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
                 buttCup.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                 buttBottle.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                 buttUnknown.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
@@ -123,6 +131,10 @@ class WaterFragment : Fragment() {
             }
 
             buttCup.setOnClickListener {
+                tMl200.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMl300.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_dark))
+                tMl500.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMlx.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
                 buttGlass.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                 buttCup.setColorFilter(ContextCompat.getColor(requireContext(), R.color.blue_dark))
                 buttBottle.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
@@ -132,6 +144,10 @@ class WaterFragment : Fragment() {
             }
 
             buttBottle.setOnClickListener {
+                tMl200.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMl300.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMl500.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_dark))
+                tMlx.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
                 buttGlass.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                 buttCup.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                 buttBottle.setColorFilter(
@@ -146,6 +162,10 @@ class WaterFragment : Fragment() {
             }
 
             buttUnknown.setOnClickListener {
+                tMl200.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMl300.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMl500.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                tMlx.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_dark))
                 buttGlass.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                 buttCup.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                 buttBottle.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
