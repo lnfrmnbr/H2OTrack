@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation("com.github.qamarelsafadi:CurvedBottomNavigation:0.1.3")
     implementation("com.diogobernardino:williamchart:3.10.1")
+    implementation("com.patrykandpatrick.vico:views:2.0.0-alpha.21")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

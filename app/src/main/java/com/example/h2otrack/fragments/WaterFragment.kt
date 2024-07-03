@@ -38,7 +38,7 @@ class WaterFragment : Fragment() {
             return fragment
         }
 
-        private val animationDuration = 1000L
+        const val animationDuration = 1000L
 
         private var barSet = mutableListOf(
             "" to 0F,
