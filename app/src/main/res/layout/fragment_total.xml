@@ -14,34 +14,34 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_marginTop="20dp"
-            android:gravity="">
+            android:paddingRight="20dp">
 
             <Button
                 android:id="@+id/butt_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/blue_dark"
                 android:fontFamily="@font/hachi_maru_pop"
                 android:text="день"
                 android:textSize="13sp"
-                app:cornerRadius="10dp"
-                android:layout_marginEnd="5dp"/>
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/butt_week"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/blue_light"
                 android:fontFamily="@font/hachi_maru_pop"
                 android:text="неделя"
-                android:textSize="13sp"
                 android:textColor="@color/blue_dark"
-                app:cornerRadius="10dp"
-                android:layout_marginEnd="5dp"/>
+                android:textSize="13sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/butt_month"
@@ -50,63 +50,39 @@
                 android:backgroundTint="@color/blue_light"
                 android:fontFamily="@font/hachi_maru_pop"
                 android:text="месяц"
-                android:textSize="13sp"
                 android:textColor="@color/blue_dark"
-                app:cornerRadius="10dp"/>
+                android:textSize="13sp"
+                app:cornerRadius="10dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-            <com.db.williamchart.view.BarChartView
+            <ProgressBar
                 android:id="@+id/water_progress"
-                android:layout_gravity="start"
-                android:layout_width="60dp"
+                style="@style/Widget.ProgressBarWater.Vertical"
+                android:layout_width="90dp"
                 android:layout_height="300dp"
-                android:layout_marginTop="25dp"
-                android:layerType="software"
-                app:chart_axis="x"
-                app:chart_barsColor="@color/blue_dark"
-                app:chart_barsRadius="10dp"
-                app:chart_labelsColor="@color/blue_dark"
-                app:chart_labelsFont="@font/play"
-                app:chart_labelsSize="18sp"
-                app:chart_spacing="60dp"
-                app:chart_barsBackgroundColor="@color/blue_light"
-                 />
+                android:progress="26" />
 
-            <com.db.williamchart.view.BarChartView
+            <ProgressBar
                 android:id="@+id/coffee_progress"
-                android:layout_width="wrap_content"
+                style="@style/Widget.ProgressBarCoffee.Vertical"
+                android:layout_width="90dp"
                 android:layout_height="300dp"
-                android:layout_marginTop="25dp"
-                android:layerType="software"
-                android:layout_marginStart="25dp"
-                app:chart_axis="x"
-                app:chart_barsColor="@color/blue_dark"
-                app:chart_barsRadius="10dp"
-                app:chart_labelsColor="@color/blue_dark"
-                app:chart_labelsFont="@font/play"
-                app:chart_labelsSize="18sp"
-                app:chart_spacing="60dp" />
+                android:progress="26" />
 
-            <com.db.williamchart.view.BarChartView
+            <ProgressBar
                 android:id="@+id/tea_progress"
-                android:layout_width="wrap_content"
+                style="@style/Widget.ProgressBarTea.Vertical"
+                android:layout_width="90dp"
                 android:layout_height="300dp"
-                android:layout_marginTop="25dp"
-                android:layerType="software"
-                android:layout_marginStart="25dp"
-                app:chart_axis="x"
-                app:chart_barsColor="@color/blue_dark"
-                app:chart_barsRadius="10dp"
-                app:chart_labelsColor="@color/blue_dark"
-                app:chart_labelsFont="@font/play"
-                app:chart_labelsSize="18sp"
-                app:chart_spacing="60dp" />
+                android:progress="26" />
+
+
         </LinearLayout>
 
 

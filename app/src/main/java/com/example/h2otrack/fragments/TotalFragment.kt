@@ -41,14 +41,6 @@ class TotalFragment : Fragment() {
         waterProcess.animate(barSetWater)
         waterProcess.barsColorsList = barsColorsList
 
-        val coffeeProcess = requireView().findViewById<BarChartView>(R.id.coffee_progress)
-        coffeeProcess.animation.duration = animationDuration
-        coffeeProcess.animate(barSetWater)
-
-        val teaProcess = requireView().findViewById<BarChartView>(R.id.tea_progress)
-        teaProcess.animation.duration = animationDuration
-        teaProcess.animate(barSetWater)
-
         Log.e("DEBUG","данные добавлены ")
     }
 
