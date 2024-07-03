@@ -1,5 +1,6 @@
 package com.example.h2otrack.fragments
 
+import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import com.db.williamchart.view.BarChartView
 import com.example.h2otrack.R
 
@@ -14,16 +16,6 @@ class TotalFragment : Fragment() {
 
     companion object {
         const val animationDuration = 1000L
-
-        private var barSetWater = mutableListOf(
-            "" to 10F,
-            "" to 20F,
-        )
-
-        private var barsColorsList = mutableListOf(
-            Color.parseColor("#FFA726"),
-            Color.argb(0, 0, 0, 0),
-        )
     }
 
     override fun onCreateView(
@@ -36,12 +28,12 @@ class TotalFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        val waterProcess = requireView().findViewById<BarChartView>(R.id.water_progress)
-        waterProcess.animation.duration = animationDuration
-        waterProcess.animate(barSetWater)
-        waterProcess.barsColorsList = barsColorsList
+        val waterProgress = requireView().findViewById<ProgressBar>(R.id.water_progress)
+        waterProgress.max = 1000
+        ObjectAnimator.ofInt(waterProgress, "progress", 300)
+            .setDuration(1000)
+            .start()
 
-        Log.e("DEBUG","данные добавлены ")
     }
 
 }
