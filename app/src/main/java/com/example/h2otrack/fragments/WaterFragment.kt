@@ -38,7 +38,7 @@ class WaterFragment : Fragment() {
             return fragment
         }
 
-        const val animationDuration = 1000L
+        private const val ANIMATION_DURATION = 1000L
 
         private var barSet = mutableListOf(
             "" to 0F,
@@ -88,7 +88,7 @@ class WaterFragment : Fragment() {
         littersAtDay.text = db.getCurrentMlOfDay(id, day, month).toString()
 
         val waterBarChart = requireView().findViewById<com.db.williamchart.view.BarChartView>(R.id.water_barChart)
-        waterBarChart.animation.duration = animationDuration
+        waterBarChart.animation.duration = ANIMATION_DURATION
         waterBarChart.animate(barSet)
 
         val buttPlus: Button = requireView().findViewById(R.id.plus)

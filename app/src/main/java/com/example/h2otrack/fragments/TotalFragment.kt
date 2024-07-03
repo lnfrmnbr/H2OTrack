@@ -9,13 +9,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import com.db.williamchart.view.BarChartView
+import com.example.h2otrack.DBHelper
 import com.example.h2otrack.R
+import java.util.Calendar
 
 class TotalFragment : Fragment() {
 
     companion object {
-        const val animationDuration = 1000L
+        fun newInstance(id: String): TotalFragment {
+            val fragment = TotalFragment()
+            val args = Bundle()
+            args.putString("id", id)
+            fragment.arguments = args
+            return fragment
+        }
+
+        private const val ANIMATION_DURATION = 1000L
     }
 
     override fun onCreateView(
@@ -28,10 +39,21 @@ class TotalFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
+        val numWater: TextView = requireView().findViewById(R.id.num_water)
+        val id = arguments?.get("id").toString().toInt()
+        val db = DBHelper(requireContext(), null)
+        val calendar = Calendar.getInstance()
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val month = calendar.get(Calendar.MONTH) + 1
+        val data = "$day.$month"
+
+        val currentWaterLitters = db.getCurrentMlOfDay(id, day, month)/1000
+        numWater.text = currentWaterLitters.toString()
+
         val waterProgress = requireView().findViewById<ProgressBar>(R.id.water_progress)
         waterProgress.max = 1000
-        ObjectAnimator.ofInt(waterProgress, "progress", 300)
-            .setDuration(1000)
+        ObjectAnimator.ofInt(waterProgress, "progress", currentWaterLitters)
+            .setDuration(ANIMATION_DURATION)
             .start()
 
     }

@@ -40,7 +40,7 @@ class AppActivity : AppCompatActivity() {
         bottomNavigation.setOnClickMenuListener {
             when(it.id){
                 1 -> {
-                    replaceFragment(TotalFragment())
+                    openTotalFragmentWithUserId()
                 }
                 2 -> {
                     openWaterFragmentWithUserId()
@@ -83,6 +83,17 @@ class AppActivity : AppCompatActivity() {
         val waterFragment = WaterFragment.newInstance(userId)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, waterFragment)
+            .commit()
+    }
+
+    private fun openTotalFragmentWithUserId() {
+        val message = intent.getStringExtra("id")
+        if (message != null) {
+            userId = message.toString()
+        }
+        val totalFragment = TotalFragment.newInstance(userId)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, totalFragment)
             .commit()
     }
 }
