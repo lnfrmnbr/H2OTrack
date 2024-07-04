@@ -111,9 +111,57 @@ class DBHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         return result
     }
 
+    fun getNormOfWater(id: Int): Double{
+        val db = this.readableDatabase
+        val query = "SELECT * FROM users WHERE id = '$id'"
+        val cursor = db.rawQuery(query, null)
+        var sex = ""
+        var weight = 0
+        var activ = 0
+        var norm = 0.0
+        if (cursor.moveToFirst()) {
+            sex = cursor.getString(2)
+            weight = cursor.getInt(3)
+            activ = cursor.getInt(4)
+        }
+        Log.e("DEBUG", "sex = '$sex' weight = '$weight' activ = '$activ'")
+        cursor.close()
+        if(sex == "Жен"){
+            norm = weight * 0.025 + activ * 0.4
+        }
+        else{
+            norm = weight * 0.03 + activ * 0.5
+        }
+        return norm
+    }
+
     fun getCurrentMlOfDay(id: Int, day: Int, month: Int): Int{
         val db = this.readableDatabase
         val query = "SELECT water FROM drinks WHERE id = '$id' AND day = '$day' AND month = '$month'"
+        val cursor = db.rawQuery(query, null)
+        var ml = 0
+        if (cursor.moveToFirst()) {
+            ml = cursor.getInt(0)
+        }
+        cursor.close()
+        return ml
+    }
+
+    fun getCurrentTeaOfDay(id: Int, day: Int, month: Int): Int{
+        val db = this.readableDatabase
+        val query = "SELECT tea FROM drinks WHERE id = '$id' AND day = '$day' AND month = '$month'"
+        val cursor = db.rawQuery(query, null)
+        var ml = 0
+        if (cursor.moveToFirst()) {
+            ml = cursor.getInt(0)
+        }
+        cursor.close()
+        return ml
+    }
+
+    fun getCurrentCoffeeOfDay(id: Int, day: Int, month: Int): Int{
+        val db = this.readableDatabase
+        val query = "SELECT coffee FROM drinks WHERE id = '$id' AND day = '$day' AND month = '$month'"
         val cursor = db.rawQuery(query, null)
         var ml = 0
         if (cursor.moveToFirst()) {

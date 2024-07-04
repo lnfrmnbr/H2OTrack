@@ -40,15 +40,24 @@ class TotalFragment : Fragment() {
         super.onResume()
 
         val numWater: TextView = requireView().findViewById(R.id.num_water)
+        val numCoffee: TextView = requireView().findViewById(R.id.num_coffee)
+        val numTea: TextView = requireView().findViewById(R.id.num_tea)
         val id = arguments?.get("id").toString().toInt()
         val db = DBHelper(requireContext(), null)
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         val month = calendar.get(Calendar.MONTH) + 1
-        val data = "$day.$month"
+
+        val waterNorm = db.getNormOfWater(id)
+        val normWaterText : TextView = requireView().findViewById(R.id.norm_water)
+        normWaterText.text = waterNorm.toString()
 
         val currentWaterLitters = db.getCurrentMlOfDay(id, day, month)/1000
+        val currentCoffeeLitters = db.getCurrentCoffeeOfDay(id, day, month)
+        val currentTeaLitters = db.getCurrentTeaOfDay(id, day, month)
         numWater.text = currentWaterLitters.toString()
+        numCoffee.text = currentCoffeeLitters.toString()
+        numTea.text = currentTeaLitters.toString()
 
         val waterProgress = requireView().findViewById<ProgressBar>(R.id.water_progress)
         waterProgress.max = 1000
@@ -57,5 +66,4 @@ class TotalFragment : Fragment() {
             .start()
 
     }
-
 }

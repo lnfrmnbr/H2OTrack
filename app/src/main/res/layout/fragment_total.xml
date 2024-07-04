@@ -74,74 +74,112 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginEnd="20dp">
 
-                <ProgressBar
-                    android:id="@+id/water_progress"
-                    style="@style/Widget.ProgressBarWater.Vertical"
-                    android:layout_width="90dp"
-                    android:layout_height="300dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/water_circle"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="40dp"
-                    android:src="@drawable/water_circle"
-                    app:layout_constraintEnd_toEndOf="@+id/water_progress"
-                    app:layout_constraintStart_toStartOf="@+id/water_progress"
-                    app:layout_constraintTop_toTopOf="@+id/water_progress" />
-
-                <TextView
-                    android:id="@+id/water_text"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/hachi_maru_pop"
-                    android:text="вода"
-                    android:textColor="@color/black"
-                    android:textSize="11sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/water_progress"
-                    app:layout_constraintEnd_toEndOf="@+id/water_progress"
-                    app:layout_constraintStart_toStartOf="@+id/water_progress"
-                    app:layout_constraintTop_toBottomOf="@+id/water_circle"
-                    app:layout_constraintVertical_bias="0.039" />
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/num_water"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/hachi_maru_pop"
-                    android:text="0"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/water_progress"
-                    app:layout_constraintEnd_toEndOf="@+id/water_progress"
-                    app:layout_constraintStart_toStartOf="@+id/water_progress"
-                    app:layout_constraintTop_toBottomOf="@+id/water_text"
-                    app:layout_constraintVertical_bias="0.673" />
+                    <ProgressBar
+                        android:id="@+id/water_progress"
+                        style="@style/Widget.ProgressBarWater.Vertical"
+                        android:layout_width="90dp"
+                        android:layout_height="300dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/lw_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/hachi_maru_pop"
-                    android:text="литров"
-                    android:textColor="@color/black"
-                    android:textSize="11sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/water_progress"
-                    app:layout_constraintEnd_toEndOf="@+id/water_progress"
-                    app:layout_constraintStart_toStartOf="@+id/water_progress"
-                    app:layout_constraintTop_toBottomOf="@+id/num_water"
-                    app:layout_constraintVertical_bias="0.039" />
+                    <ImageView
+                        android:id="@+id/water_circle"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="40dp"
+                        android:src="@drawable/water_circle"
+                        app:layout_constraintEnd_toEndOf="@+id/water_progress"
+                        app:layout_constraintStart_toStartOf="@+id/water_progress"
+                        app:layout_constraintTop_toTopOf="@+id/water_progress" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/water_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hachi_maru_pop"
+                        android:text="вода"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/water_progress"
+                        app:layout_constraintEnd_toEndOf="@+id/water_progress"
+                        app:layout_constraintStart_toStartOf="@+id/water_progress"
+                        app:layout_constraintTop_toBottomOf="@+id/water_circle"
+                        app:layout_constraintVertical_bias="0.039" />
+
+                    <TextView
+                        android:id="@+id/num_water"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hachi_maru_pop"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/water_progress"
+                        app:layout_constraintEnd_toEndOf="@+id/water_progress"
+                        app:layout_constraintStart_toStartOf="@+id/water_progress"
+                        app:layout_constraintTop_toBottomOf="@+id/water_text"
+                        app:layout_constraintVertical_bias="0.673" />
+
+                    <TextView
+                        android:id="@+id/lw_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hachi_maru_pop"
+                        android:text="литров"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/water_progress"
+                        app:layout_constraintEnd_toEndOf="@+id/water_progress"
+                        app:layout_constraintStart_toStartOf="@+id/water_progress"
+                        app:layout_constraintTop_toBottomOf="@+id/num_water"
+                        app:layout_constraintVertical_bias="0.039" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/norm_water"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hachi_maru_pop"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/l1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hachi_maru_pop"
+                        android:text="л."
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -201,7 +239,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/hachi_maru_pop"
-                    android:text="литров"
+                    android:text="чашек"
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/coffee_progress"
@@ -269,7 +307,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/hachi_maru_pop"
-                    android:text="литров"
+                    android:text="чашек"
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="@+id/tea_progress"
