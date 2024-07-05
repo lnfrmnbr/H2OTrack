@@ -52,7 +52,7 @@ class TotalFragment : Fragment() {
         val normWaterText : TextView = requireView().findViewById(R.id.norm_water)
         normWaterText.text = waterNorm.toString()
 
-        val currentWaterLitters = db.getCurrentMlOfDay(id, day, month)/1000
+        val currentWaterLitters = db.getCurrentMlOfDay(id, day, month).toFloat()/1000.0
         val currentCoffeeLitters = db.getCurrentCoffeeOfDay(id, day, month)
         val currentTeaLitters = db.getCurrentTeaOfDay(id, day, month)
         numWater.text = currentWaterLitters.toString()
@@ -61,7 +61,7 @@ class TotalFragment : Fragment() {
 
         val waterProgress = requireView().findViewById<ProgressBar>(R.id.water_progress)
         waterProgress.max = 1000
-        ObjectAnimator.ofInt(waterProgress, "progress", currentWaterLitters)
+        ObjectAnimator.ofInt(waterProgress, "progress", (currentWaterLitters*1000/waterNorm).toInt())
             .setDuration(ANIMATION_DURATION)
             .start()
 
